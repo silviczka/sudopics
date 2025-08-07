@@ -8,7 +8,7 @@ export const getHint = (cellBoard: CellData[][]) => {
   );
   console.log('Current board being solved:', currentBoard);
 
-  // ❗ Check for bad values
+  // Check for bad values
   currentBoard.forEach((row, r) => {
     row.forEach((val, c) => {
       if (typeof val !== 'number' || isNaN(val)) {
@@ -24,9 +24,6 @@ export const getHint = (cellBoard: CellData[][]) => {
     );
     return null;
   }
-
-  // const solved = solveSudoku(currentBoard);
-  // if (!solved) return null; // unsolvable or invalid puzzle
 
   const emptyCells: { row: number; col: number }[] = [];
 

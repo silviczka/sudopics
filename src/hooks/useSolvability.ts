@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { solveSudoku } from '@/utils/game-logic/sudokuSolver';
 
-export function useSolvability(board: number[][]) {
+export const useSolvability = (board: number[][]) => {
   const [isSolvable, setIsSolvable] = useState(true);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ export function useSolvability(board: number[][]) {
   }, [board]);
 
   return isSolvable;
-}
+};

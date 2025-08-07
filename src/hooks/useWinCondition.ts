@@ -9,11 +9,11 @@ interface UseWinConditionParams {
   setWinDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function useWinCondition({
+export const useWinCondition = ({
   board,
   initialBoard,
   setWinDialogOpen,
-}: UseWinConditionParams) {
+}: UseWinConditionParams) => {
   useEffect(() => {
     if (
       initialBoard &&
@@ -25,4 +25,4 @@ export function useWinCondition({
       setWinDialogOpen(true);
     }
   }, [board, initialBoard]);
-}
+};
