@@ -13,10 +13,15 @@ const HomePage = () => {
       <div className={poppins.variable}>
         <main className="relative z-30 flex min-h-screen flex-col items-center justify-center bg-black-100 p-6 text-center">
           <h1 className="text-4xl font-bold mb-5">
-            <span className="text-4xl">🧩</span> Let's play sudoku!{' '}
+            <span className="text-4xl">🧩</span> Welcome to
+            <span className="text-indigo-400"> SudoPics</span>!
           </h1>
+          <p className="text-lg mb-6 text-gray-400 max-w-md">
+            The classic sudoku game - with a twist! Choose your favorite style
+            below:
+          </p>
           <p className="text-xl font-bold text-gray-500 mb-8">
-            Choose your preferred game style:
+            Play with numbers or pictures - your call.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6">
