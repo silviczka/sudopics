@@ -24,5 +24,5 @@ export const useWinCondition = ({
     ) {
       setWinDialogOpen(true);
     }
-  }, [board, initialBoard]);
+  }, [board, initialBoard, setWinDialogOpen]);
 };

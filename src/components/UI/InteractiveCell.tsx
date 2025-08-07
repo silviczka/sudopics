@@ -13,7 +13,7 @@ interface InteractiveCellProps {
 }
 
 const InteractiveCell = ({
-  cell,
+  cell: _cell,
   row,
   col,
   onClick,

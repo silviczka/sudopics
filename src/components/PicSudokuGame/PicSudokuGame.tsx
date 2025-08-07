@@ -5,14 +5,10 @@ import SudokuGameBase from '@/components/SudokuGameBase/SudokuGameBase';
 import { useImageSet } from '@/hooks/useImageSet';
 import { LOCAL_STORAGE_KEY_PIC } from '@/constants/constants';
 import { CellData } from '@/types/sudoku';
-import { imageSets } from '@/utils/imageSets';
 
 const PicSudokuGame = () => {
   const { selectedSetKey, setSelectedSetKey, imageMap, availableSets, size } =
     useImageSet();
-  const activeSetKey = 'cats';
-  const activeImageSet = imageSets[activeSetKey].images;
-  const activeImageSize = imageSets[activeSetKey].size;
 
   const imageSetDropdown = (
     <div>
@@ -40,7 +36,7 @@ const PicSudokuGame = () => {
       toolbar={imageSetDropdown}
       imageSet={imageMap}
       imageSize={size}
-      renderCell={(cell: CellData, row: number, col: number) => {
+      renderCell={(cell: CellData, _row: number, _col: number) => {
         const value = cell.fixedNumber ?? cell.userNumber;
         const imageSrc = value && imageMap[value];
 
