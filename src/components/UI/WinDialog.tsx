@@ -18,7 +18,7 @@ const WinDialog = ({ onRestartSame, onNewGame }: WinDialogProps) => {
         <div className="flex justify-center space-x-4">
           <button
             onClick={onRestartSame}
-            className="bg-gray-200 text-black font-semibold px-4 py-2 rounded hover:bg-gray-300"
+            className="bg-gray-200 text-black  px-4 py-2 rounded hover:bg-gray-300"
           >
             Restart This Game
           </button>
