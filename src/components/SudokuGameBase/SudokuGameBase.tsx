@@ -56,7 +56,6 @@ const SudokuGameBase = ({
   useSudokuStorage({
     storageKey,
     board,
-    setBoard,
     setInitialBoard,
   });
 
@@ -125,10 +124,6 @@ const SudokuGameBase = ({
           onClick={() => applyHint(board, setBoard)}
           disabled={!isSolvable}
         />
-
-        {/* <UIButton onClick={() => applyHint(board, setBoard)} variant="primary">
-          Get Hint
-        </UIButton> */}
       </main>
     </div>
   );

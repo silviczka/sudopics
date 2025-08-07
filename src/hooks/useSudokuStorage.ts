@@ -6,14 +6,12 @@ interface UseSudokuStorageParams {
   storageKey: string;
   board: CellData[][];
   setInitialBoard: React.Dispatch<React.SetStateAction<CellData[][] | null>>;
-  setBoard: React.Dispatch<React.SetStateAction<CellData[][]>>;
 }
 
 export const useSudokuStorage = ({
   storageKey,
   board,
   setInitialBoard,
-  setBoard,
 }: UseSudokuStorageParams) => {
   // Load from localStorage or generate
   useEffect(() => {
@@ -32,7 +30,7 @@ export const useSudokuStorage = ({
       );
       setInitialBoard(structured);
     }
-  }, [storageKey]);
+  }, [storageKey, setInitialBoard]);
 
   // Save to localStorage
   useEffect(() => {

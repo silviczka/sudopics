@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface OptionMenuProps {
   imageSet?: Record<number, string>;
   imageSize?: { width: number; height: number };
@@ -31,7 +33,7 @@ const OptionMenu = ({
             className="w-8 h-8 bg-gray-200 hover:bg-blue-300 text-black rounded"
           >
             {imageSet ? (
-              <img
+              <Image
                 src={imageSet[num]}
                 alt={`Option ${num}`}
                 width={imageSize?.width}
