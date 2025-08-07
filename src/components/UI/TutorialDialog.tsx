@@ -25,7 +25,7 @@ const TutorialDialog = () => {
             <h2 className="text-2xl font-bold mb-4">🧩 Sudoku Game Tutorial</h2>
 
             <p className="mb-4">
-              Welcome to Sudoku! Whether you're playing{' '}
+              Welcome to Sudoku! Whether you&rsquo;re playing{' '}
               <strong>Number Sudoku</strong> or <strong>Pic Sudoku</strong>,
               this guide will help you understand how to use the game interface.
             </p>
@@ -73,7 +73,8 @@ const TutorialDialog = () => {
                 <li>Up to 4 candidates per cell.</li>
                 <li>Displayed smaller inside the cell.</li>
                 <li>
-                  They don't affect validation—just there to help you think.
+                  They don&rsquo;t affect validation—just there to help you
+                  think.
                 </li>
               </ul>
             </section>
@@ -105,7 +106,9 @@ const TutorialDialog = () => {
                 </li>
                 <ul className="list-disc pl-8 space-y-1">
                   <li>The board is invalid (e.g., due to a duplicate).</li>
-                  <li>You're in a dead-end with no valid solution path.</li>
+                  <li>
+                    You&rsquo;re in a dead-end with no valid solution path.
+                  </li>
                 </ul>
               </ul>
             </section>
