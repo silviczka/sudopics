@@ -24,9 +24,8 @@ export const useSudokuInteractions = (initialBoard: CellData[][]) => {
   }, [initialBoard]);
 
   const adjustMenuTop = (row: number, top: number): number => {
-    // Adjust top offset depending on row to prevent menu overflow
-    if (row >= 6) return top - 240; // bottom rows — raise it more
-    return top - 60; // top rows
+    if (row >= 6) return top - 240;
+    return top - 60;
   };
   const adjustMenuLeft = (col: number, left: number): number => {
     if (col >= 6) return left - 60;

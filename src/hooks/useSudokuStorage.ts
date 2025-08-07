@@ -9,12 +9,12 @@ interface UseSudokuStorageParams {
   setBoard: React.Dispatch<React.SetStateAction<CellData[][]>>;
 }
 
-export function useSudokuStorage({
+export const useSudokuStorage = ({
   storageKey,
   board,
   setInitialBoard,
   setBoard,
-}: UseSudokuStorageParams) {
+}: UseSudokuStorageParams) => {
   // Load from localStorage or generate
   useEffect(() => {
     const saved = localStorage.getItem(storageKey);
@@ -40,4 +40,4 @@ export function useSudokuStorage({
       localStorage.setItem(storageKey, JSON.stringify(board));
     }
   }, [board, storageKey]);
-}
+};

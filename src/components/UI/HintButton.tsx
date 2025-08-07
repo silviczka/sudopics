@@ -6,7 +6,7 @@ interface HintButtonProps {
   disabled: boolean;
 }
 
-function HintButton({ onClick, disabled }: HintButtonProps) {
+const HintButton = ({ onClick, disabled }: HintButtonProps) => {
   return (
     <div className="relative group inline-block">
       <UIButton onClick={onClick} disabled={disabled} variant="primary">
@@ -24,6 +24,6 @@ function HintButton({ onClick, disabled }: HintButtonProps) {
       )}
     </div>
   );
-}
+};
 
 export default HintButton;
