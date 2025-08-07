@@ -49,6 +49,9 @@ export const useSudokuInteractions = (initialBoard: CellData[][]) => {
     left: number,
   ) => {
     const cell = board[row][col];
+    if (cell.fixedNumber !== null) {
+      return; // prevent menu open for givens
+    }
     if (cell.userNumber !== null || cell.drafts.length > 0) {
       handleCellRightClick(row, col, board, setBoard);
       return;
