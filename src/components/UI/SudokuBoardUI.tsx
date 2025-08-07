@@ -8,85 +8,69 @@ interface SudokuBoardProps {
 }
 
 const SudokuBoardUI = ({ board, renderCell, lastEdited }: SudokuBoardProps) => {
+  if (!board || board.length !== 9 || board.some((row) => row.length !== 9)) {
+    return null;
+  }
   return (
-    <div
-      className="
-        mx-auto
-        grid grid-cols-9 grid-rows-9
-        bg-transaprent
-        border border-gray-700
-        w-full max-w-[min(90vw,700px)]  
-        aspect-square
-        gap-[2px]
-                       
-      "
-    >
-      {board.map((row, rowIndex) =>
-        row.map((cell, colIndex) => {
-          const thickRight =
-            colIndex === 2 || colIndex === 5
-              ? 'border-r-2 border-r-white/80'
-              : '';
-          const thickLeft =
-            colIndex === 3 || colIndex === 6
-              ? 'border-l-2 border-l-white/80'
-              : '';
-          const thickBottom =
-            rowIndex === 2 || rowIndex === 5
-              ? 'border-b-2 border-b-white/80'
-              : '';
-          const thickTop =
-            rowIndex === 3 || rowIndex === 6
-              ? 'border-t-2 border-t-white/80'
-              : '';
-
-          return (
+    <div className="mx-auto w-full max-w-[min(95vw,700px)] aspect-square flex flex-col gap-[5px]">
+      {Array.from({ length: 3 }).map((_, blockRow) => (
+        <div key={blockRow} className="flex flex-1 flex-row gap-[5px]">
+          {Array.from({ length: 3 }).map((_, blockCol) => (
             <div
-              key={`${rowIndex}-${colIndex}`}
-              className={`relative
-                flex items-center justify-center
-                text-white bg-white/10 text-lg font-semibold
-                border border-gray-300
-               ${
-                 cell.fixedNumber == null
-                   ? 'hover:bg-white/20 cursor-pointer'
-                   : ''
-               }
-                ${thickRight} ${thickLeft} ${thickBottom} ${thickTop}
-              `}
-              style={{
-                width: '100%',
-                height: '100%',
-                boxSizing: 'border-box',
-                fontSize: 'clamp(0.8rem, vw, 2.5rem)',
-                userSelect: 'none',
-              }}
+              key={blockCol}
+              className="grid grid-cols-3 grid-rows-3 flex-1 gap-[2px]"
             >
-              {cell.isValid === false && (
-                <>
-                  {/* Regular red border for all invalid cells */}
-                  <div className="absolute inset-0 border-2 border-red-600 z-10 pointer-events-none rounded-[20px]" />
+              {Array.from({ length: 3 }).flatMap((_, r) =>
+                Array.from({ length: 3 }).map((_, c) => {
+                  const rowIndex = blockRow * 3 + r;
+                  const colIndex = blockCol * 3 + c;
+                  const cell = board[rowIndex][colIndex];
 
-                  {/*  red glow for the last edited invalid cell */}
-                  {lastEdited?.row === rowIndex &&
-                    lastEdited?.col === colIndex && (
-                      <div
-                        className="absolute inset-0 z-20 pointer-events-none rounded-[20px]"
-                        style={{
-                          boxShadow:
-                            'inset 0 0 10px 5px rgba(239, 68, 68, 0.9)',
-                        }}
-                      />
-                    )}
-                </>
+                  return (
+                    <div
+                      key={`${rowIndex}-${colIndex}`}
+                      className={`relative flex items-center justify-center
+                        text-white bg-white/10 text-lg font-semibold
+                        ${
+                          cell.fixedNumber == null
+                            ? 'hover:bg-white/20 cursor-pointer'
+                            : ''
+                        }
+                      `}
+                      style={{
+                        aspectRatio: '1 / 1',
+                        width: '100%',
+                        height: '100%',
+                        fontSize: 'clamp(0.8rem, 2vw, 2.5rem)',
+                        userSelect: 'none',
+                      }}
+                    >
+                      {cell.isValid === false && (
+                        <>
+                          <div className="absolute inset-0 border-2 border-red-600 z-10 pointer-events-none rounded-[20px]" />
+                          {lastEdited?.row === rowIndex &&
+                            lastEdited?.col === colIndex && (
+                              <div
+                                className="absolute inset-0 z-20 pointer-events-none rounded-[20px]"
+                                style={{
+                                  boxShadow:
+                                    'inset 0 0 10px 5px rgba(239, 68, 68, 0.9)',
+                                }}
+                              />
+                            )}
+                        </>
+                      )}
+                      {renderCell
+                        ? renderCell(cell, rowIndex, colIndex)
+                        : cell.fixedNumber ?? cell.userNumber ?? ''}
+                    </div>
+                  );
+                }),
               )}
-              {renderCell
-                ? renderCell(cell, rowIndex, colIndex)
-                : cell.fixedNumber ?? cell.userNumber ?? ''}
             </div>
-          );
-        }),
-      )}
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

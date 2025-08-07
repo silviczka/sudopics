@@ -15,8 +15,8 @@ export const imageSets: Record<
       9: '/images/Jesus/Jesus9.png',
     },
     size: {
-      width: 56,
-      height: 56,
+      width: 53,
+      height: 53,
     },
   },
   cats: {
@@ -31,7 +31,7 @@ export const imageSets: Record<
       8: '/images/cats/8.png',
       9: '/images/cats/9.png',
     },
-    size: { width: 64, height: 64 },
+    size: { width: 61, height: 61 },
   },
   birds: {
     images: {
@@ -45,7 +45,7 @@ export const imageSets: Record<
       8: '/images/birds/8.png',
       9: '/images/birds/9.png',
     },
-    size: { width: 64, height: 64 },
+    size: { width: 60, height: 60 },
   },
   gems: {
     images: {

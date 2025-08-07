@@ -52,7 +52,10 @@ const PicSudokuGame = () => {
         }
 
         return (
-          <div className="w-full h-full grid grid-cols-2 grid-rows-2 gap-0.5 p-0.5">
+          <div
+            className="w-full h-full grid grid-cols-2 grid-rows-2  pt-1 
+          "
+          >
             {cell.drafts.map((draft) => {
               const draftSrc = imageMap[draft];
               return (
