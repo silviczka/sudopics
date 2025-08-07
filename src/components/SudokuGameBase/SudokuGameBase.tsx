@@ -11,6 +11,7 @@ import HintButton from '../UI/HintButton';
 import WinDialog from '../UI/WinDialog';
 import OptionMenu from '../UI/OptionMenu';
 import NavBar from '../UI/NavBar';
+import TutorialDialog from '../UI/TutorialDialog';
 import InteractiveCell from '../UI/InteractiveCell';
 import { useSudokuStorage } from '@/hooks/useSudokuStorage';
 import { useWinCondition } from '@/hooks/useWinCondition';
