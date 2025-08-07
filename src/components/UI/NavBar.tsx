@@ -2,6 +2,7 @@
 
 import React from 'react';
 import UIButton from './UIButton';
+import TutorialDialog from './TutorialDialog';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -20,6 +21,7 @@ const NavBar = ({ onRestart, onNewGame }: NavBarProps) => {
       </Link>
 
       <div className="flex space-x-4">
+        <TutorialDialog />
         <UIButton onClick={onRestart} variant="transparent">
           Restart
         </UIButton>

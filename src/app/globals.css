@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* body {
-  font-family: 'Roboto', sans-serif;
-} */
-
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,6 +20,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }
 
 body {
