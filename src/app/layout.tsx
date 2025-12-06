@@ -16,6 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
       <body className={`antialiased font-main`}>{children}</body>
     </html>
   );
